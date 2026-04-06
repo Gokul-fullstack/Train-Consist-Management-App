@@ -1,4 +1,5 @@
-import java.util.LinkedList;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class TrainConsistApp {
 
@@ -6,27 +7,19 @@ public class TrainConsistApp {
 
         System.out.println("=== Train Consist Management App ===");
 
-        // 🔹 UC4: Ordered train consist using LinkedList
-        LinkedList<String> train = new LinkedList<>();
+        // 🔹 UC5: Maintain insertion order + uniqueness
+        Set<String> trainFormation = new LinkedHashSet<>();
 
         // Add bogies
-        train.add("Engine");
-        train.add("Sleeper");
-        train.add("AC");
-        train.add("Cargo");
-        train.add("Guard");
+        trainFormation.add("Engine");
+        trainFormation.add("Sleeper");
+        trainFormation.add("Cargo");
+        trainFormation.add("Guard");
 
-        System.out.println("Initial Train Consist: " + train);
+        // Attempt duplicate
+        trainFormation.add("Sleeper"); // will be ignored
 
-        // Insert Pantry Car at position 2
-        train.add(2, "Pantry");
-
-        System.out.println("After adding Pantry Car: " + train);
-
-        // Remove first and last bogie
-        train.removeFirst();
-        train.removeLast();
-
-        System.out.println("Final Train Consist: " + train);
+        // Display final formation
+        System.out.println("Train Formation (Ordered & Unique): " + trainFormation);
     }
 }
