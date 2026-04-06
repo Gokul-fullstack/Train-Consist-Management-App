@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.LinkedList;
 
 public class TrainConsistApp {
 
@@ -9,25 +6,27 @@ public class TrainConsistApp {
 
         System.out.println("=== Train Consist Management App ===");
 
-        // 🔹 UC2 (optional: keep or remove based on requirement)
-        List<String> passengerBogies = new ArrayList<>();
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        // 🔹 UC4: Ordered train consist using LinkedList
+        LinkedList<String> train = new LinkedList<>();
 
-        System.out.println("Passenger Bogies: " + passengerBogies);
+        // Add bogies
+        train.add("Engine");
+        train.add("Sleeper");
+        train.add("AC");
+        train.add("Cargo");
+        train.add("Guard");
 
-        // 🔹 UC3: Unique Bogie IDs using HashSet
-        Set<String> bogieIds = new HashSet<>();
+        System.out.println("Initial Train Consist: " + train);
 
-        // Add bogie IDs (with duplicates)
-        bogieIds.add("BG101");
-        bogieIds.add("BG102");
-        bogieIds.add("BG103");
-        bogieIds.add("BG101"); // duplicate
-        bogieIds.add("BG102"); // duplicate
+        // Insert Pantry Car at position 2
+        train.add(2, "Pantry");
 
-        // Display unique bogie IDs
-        System.out.println("Unique Bogie IDs: " + bogieIds);
+        System.out.println("After adding Pantry Car: " + train);
+
+        // Remove first and last bogie
+        train.removeFirst();
+        train.removeLast();
+
+        System.out.println("Final Train Consist: " + train);
     }
 }
